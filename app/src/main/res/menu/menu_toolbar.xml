@@ -15,6 +15,11 @@
         android:title="Adicionar Lista"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/sobre_app"
+        android:title="Sobre"
+        app:showAsAction="never" />
+
 
     <item
         android:id="@+id/menu_sair"

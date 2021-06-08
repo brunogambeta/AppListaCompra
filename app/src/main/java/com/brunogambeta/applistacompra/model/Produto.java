@@ -12,7 +12,6 @@ public class Produto {
     private String idListaCompra;
     private String idProduto;
     private String nome;
-    private String marca;
     private String quantidade;
     private String statusProduto;
 
@@ -36,6 +35,7 @@ public class Produto {
         salvarNoUsuario();
 
     }
+
     public void salvarNoUsuario() {
 
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
@@ -90,13 +90,6 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
 
     public String getQuantidade() {
         return quantidade;

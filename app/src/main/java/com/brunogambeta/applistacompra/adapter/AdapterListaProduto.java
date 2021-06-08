@@ -40,7 +40,6 @@ public class AdapterListaProduto extends RecyclerView.Adapter<AdapterListaProdut
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Produto produtos = listaProdutos.get(position);
         holder.descricaoProduto.setText("Nome Produto: "+produtos.getNome());
-        holder.marcaProduto.setText("Marca: "+produtos.getMarca());
         holder.qtdProduto.setText("Quantidade : " + produtos.getQuantidade());
         holder.comprado.isChecked();
 
@@ -54,7 +53,6 @@ public class AdapterListaProduto extends RecyclerView.Adapter<AdapterListaProdut
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView descricaoProduto;
-        TextView marcaProduto;
         TextView qtdProduto;
         CheckBox comprado;
 
@@ -62,7 +60,6 @@ public class AdapterListaProduto extends RecyclerView.Adapter<AdapterListaProdut
             super(itemView);
 
             descricaoProduto = itemView.findViewById(R.id.textDescricaoProduto);
-            marcaProduto = itemView.findViewById(R.id.textMarcaProduto);
             qtdProduto = itemView.findViewById(R.id.textQuantidadeProduto);
             comprado = itemView.findViewById(R.id.checkBoxComprado);
 

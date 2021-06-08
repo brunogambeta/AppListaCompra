@@ -27,13 +27,6 @@
             android:hint="Descrição Produto"
             android:inputType="text" />
 
-        <EditText
-            android:id="@+id/editMarcaProdutoCadastro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Marca Produto"
-            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editQuantidadeProdutoCadastro"
@@ -41,6 +34,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Quantidade Produto"
+            android:text="1"
             android:inputType="number" />
 
         <Button

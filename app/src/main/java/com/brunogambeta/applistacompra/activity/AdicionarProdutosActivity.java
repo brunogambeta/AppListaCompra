@@ -17,12 +17,11 @@ import com.brunogambeta.applistacompra.model.Produto;
 
 public class AdicionarProdutosActivity extends AppCompatActivity {
 
-    private EditText editNomeProduto, editMarcaProduto, editQuantidadeProduto;
+    private EditText editNomeProduto, editQuantidadeProduto;
     private Button buttonSalvarProduto;
     private ListaDeCompra listaSelecionada;
 
     private String idListaCompra;
-
 
 
     @Override
@@ -40,35 +39,29 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
 
         listaSelecionada = (ListaDeCompra) getIntent().getSerializableExtra("listaSelecionada");
 
-        if(listaSelecionada != null){
+        if (listaSelecionada != null) {
 
             idListaCompra = listaSelecionada.getIdListaDeCompra();
             buttonSalvarProduto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String nomeProduto = editNomeProduto.getText().toString();
-                    String marcaProduto = editMarcaProduto.getText().toString();
                     String qtdProduto = editQuantidadeProduto.getText().toString();
 
-                    if (!nomeProduto.isEmpty()){
-                        if (!marcaProduto.isEmpty()){
-                            if (!qtdProduto.isEmpty()){
-                                Produto produto = new Produto();
-                                produto.setIdListaCompra(idListaCompra);
-                                produto.setNome(nomeProduto);
-                                produto.setMarca(marcaProduto);
-                                produto.setQuantidade(qtdProduto);
-                                produto.setStatusProduto("p");
-                                produto.salvar();
-                                exibirMensagem("Produto salvo com sucesso!");
-                                finish();
-                            }else{
-                                exibirMensagem("Quantidade do produto não informada!");
-                            }
-                        }else{
-                            exibirMensagem("Marca do produto não informada!");
+                    if (!nomeProduto.isEmpty()) {
+                        if (!qtdProduto.isEmpty()) {
+                            Produto produto = new Produto();
+                            produto.setIdListaCompra(idListaCompra);
+                            produto.setNome(nomeProduto);
+                            produto.setQuantidade(qtdProduto);
+                            produto.setStatusProduto("p");
+                            produto.salvar();
+                            exibirMensagem("Produto salvo com sucesso!");
+                            finish();
+                        } else {
+                            exibirMensagem("Quantidade do produto não informada!");
                         }
-                    }else{
+                    } else {
                         exibirMensagem("Nome do Produto não informado!");
                     }
 
@@ -77,19 +70,15 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
         }
     }
 
-    private void inicializarComponentes(){
+    private void inicializarComponentes() {
 
-        editMarcaProduto = findViewById(R.id.editMarcaProdutoCadastro);
         editNomeProduto = findViewById(R.id.editNomeProdutoCadastro);
         editQuantidadeProduto = findViewById(R.id.editQuantidadeProdutoCadastro);
         buttonSalvarProduto = findViewById(R.id.buttonSalvarProduto);
     }
 
-    private void exibirMensagem(String texto){
+    private void exibirMensagem(String texto) {
         Toast.makeText(this, texto, Toast.LENGTH_LONG).show();
     }
 
-    private void mudaStatusProduto(){
-
-    }
 }

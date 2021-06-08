@@ -124,6 +124,9 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.adicionar_Lista:
                 abrirTelaAdicionarLista();
                 break;
+            case R.id.sobre_app:
+                abrirTelaSobre();
+                break;
             case R.id.adicionar_nova_lista:
                 abrirtelaNovaLista();
                 break;
@@ -147,6 +150,11 @@ public class HomeActivity extends AppCompatActivity {
 
     private void abrirtelaNovaLista() {
         Intent i = new Intent(HomeActivity.this, NovaListaCompraActivity.class);
+        startActivity(i);
+    }
+
+    private void abrirTelaSobre(){
+        Intent i = new Intent(HomeActivity.this, SobreActivity.class);
         startActivity(i);
     }
 
