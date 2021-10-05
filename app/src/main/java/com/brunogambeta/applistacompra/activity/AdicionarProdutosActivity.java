@@ -3,6 +3,7 @@ package com.brunogambeta.applistacompra.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,14 +13,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.brunogambeta.applistacompra.R;
+import com.brunogambeta.applistacompra.helper.UsuarioFirebase;
 import com.brunogambeta.applistacompra.model.ListaDeCompra;
 import com.brunogambeta.applistacompra.model.Produto;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 public class AdicionarProdutosActivity extends AppCompatActivity {
 
     private EditText editNomeProduto, editQuantidadeProduto;
     private Button buttonSalvarProduto;
-    private ListaDeCompra listaSelecionada;
+    private String listaSelecionada;
+    private AdView adViewAdicionarProduto;
 
     private String idListaCompra;
 
@@ -30,18 +38,20 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adicionar_produtos);
 
         inicializarComponentes();
+        carregarAnuncio();
 
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Novo Produto");
+        toolbar.setSubtitle(UsuarioFirebase.getDateTime());
+        toolbar.setSubtitleTextColor(Color.BLACK);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        listaSelecionada = (ListaDeCompra) getIntent().getSerializableExtra("listaSelecionada");
 
+        listaSelecionada = (String) getIntent().getSerializableExtra("listaSelecionada");
         if (listaSelecionada != null) {
 
-            idListaCompra = listaSelecionada.getIdListaDeCompra();
+            idListaCompra = listaSelecionada;
             buttonSalvarProduto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -75,10 +85,25 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
         editNomeProduto = findViewById(R.id.editNomeProdutoCadastro);
         editQuantidadeProduto = findViewById(R.id.editQuantidadeProdutoCadastro);
         buttonSalvarProduto = findViewById(R.id.buttonSalvarProduto);
+        adViewAdicionarProduto = findViewById(R.id.adViewTelaAdicionarProdutos);
     }
 
     private void exibirMensagem(String texto) {
-        Toast.makeText(this, texto, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, texto, Toast.LENGTH_SHORT).show();
     }
+
+    //Metodo para carregar o anuncio na tela
+    private void carregarAnuncio() {
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adViewAdicionarProduto.loadAd(adRequest);
+    }
+
+
 
 }

@@ -3,6 +3,7 @@ package com.brunogambeta.applistacompra.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,12 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.brunogambeta.applistacompra.R;
+import com.brunogambeta.applistacompra.helper.UsuarioFirebase;
 import com.brunogambeta.applistacompra.model.ListaDeCompra;
 import com.brunogambeta.applistacompra.model.Usuario;
 
 public class AdicionarListaActivity extends AppCompatActivity {
 
-    private EditText idListaCompra, descricaoAdcionarListaCompra;
+    private EditText  descricaoAdcionarListaCompra;
     private Button botaoAdicionarLista;
 
 
@@ -28,27 +30,23 @@ public class AdicionarListaActivity extends AppCompatActivity {
 
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Adicionar Lista Existente");
+        toolbar.setTitle("Nova Lista");
+        toolbar.setSubtitle(UsuarioFirebase.getDateTime());
+        toolbar.setSubtitleTextColor(Color.BLACK);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        //Funcão do botao adicionar nova lista
         botaoAdicionarLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String idLista = idListaCompra.getText().toString();
                 String descricao = descricaoAdcionarListaCompra.getText().toString();
                 if (!descricao.isEmpty()) {
-                    if (!idLista.isEmpty()) {
-                        ListaDeCompra lista = new ListaDeCompra();
-                        lista.setIdListaDeCompra(idLista);
-                        lista.setDescricao(descricao);
-                        lista.salvarNovaLista();
-                        exibirMensagem("Lista adicionada com sucesso!");
-                        finish();
-                    } else {
-                        exibirMensagem("ID da lista não preenchido");
-                    }
+                    ListaDeCompra lista = new ListaDeCompra();
+                    lista.setDescricao(descricao);
+                    lista.salvarNovaLista();
+                    exibirMensagem("Lista adicionada com sucesso!");
+                    finish();
                 }else{
                     exibirMensagem("Descricao da lista não preenchido");
                 }
@@ -56,14 +54,14 @@ public class AdicionarListaActivity extends AppCompatActivity {
         });
     }
 
+    //Metodo para inicializar os componentes
     private void inicializarComponentes() {
-
-        idListaCompra = findViewById(R.id.editIdListaCompra);
         descricaoAdcionarListaCompra = findViewById(R.id.editDescricaoAdicionarLista);
         botaoAdicionarLista = findViewById(R.id.buttonAdicionarLista);
     }
 
+    //Metodo para exibir mensagem de erro
     private void exibirMensagem(String texto) {
-        Toast.makeText(this, texto, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, texto, Toast.LENGTH_SHORT).show();
     }
 }

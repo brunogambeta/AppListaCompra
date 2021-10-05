@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/corFundo"
+    android:background="@drawable/my_theme"
     android:orientation="vertical"
+    android:layout_margin="8dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp">
 
@@ -19,15 +20,10 @@
             android:layout_marginBottom="8dp"
             android:layout_weight="4"
             android:text="Descricao Produto"
+            android:textColor="@color/corTexto"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <CheckBox
-            android:id="@+id/checkBoxComprado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="Comprado" />
     </LinearLayout>
 
     <LinearLayout
@@ -37,10 +33,11 @@
 
         <TextView
             android:id="@+id/textQuantidadeProduto"
-            android:layout_width="match_parent"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Quantidade"
+            android:textColor="@color/corTexto"
             android:textStyle="bold" />
     </LinearLayout>
 

@@ -17,7 +17,6 @@ public class ListaDeCompra implements Serializable {
     private String descricao;
 
 
-
     public ListaDeCompra() {
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase()
                 .child("minhaLista");
@@ -33,7 +32,6 @@ public class ListaDeCompra implements Serializable {
     }
 
     public void salvarNovaLista() {
-
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
         DatabaseReference listaCompraRef = firebaseRef.child("usuarios").child(UsuarioFirebase.getIdUsuario())
                 .child("listaCompra")
@@ -59,5 +57,7 @@ public class ListaDeCompra implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+
 
 }

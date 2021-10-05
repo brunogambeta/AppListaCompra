@@ -3,11 +3,14 @@ package com.brunogambeta.applistacompra.adapter;
  * Created by Bruno Gambeta on 20/04/2021.
  */
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,8 +29,6 @@ public class AdapterListaProduto extends RecyclerView.Adapter<AdapterListaProdut
     public AdapterListaProduto(List<Produto> produtos) {
         this.listaProdutos = produtos;
     }
-
-
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,10 +40,9 @@ public class AdapterListaProduto extends RecyclerView.Adapter<AdapterListaProdut
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Produto produtos = listaProdutos.get(position);
-        holder.descricaoProduto.setText("Nome Produto: "+produtos.getNome());
-        holder.qtdProduto.setText("Quantidade : " + produtos.getQuantidade());
-        holder.comprado.isChecked();
-
+        holder.descricaoProduto.setText("Descrição: "+produtos.getNome());
+        holder.qtdProduto.setText("Quantidade: " + produtos.getQuantidade());
+        //holder.comprado.isChecked();
     }
 
     @Override
@@ -54,14 +54,14 @@ public class AdapterListaProduto extends RecyclerView.Adapter<AdapterListaProdut
 
         TextView descricaoProduto;
         TextView qtdProduto;
-        CheckBox comprado;
+        //CheckBox comprado;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             descricaoProduto = itemView.findViewById(R.id.textDescricaoProduto);
             qtdProduto = itemView.findViewById(R.id.textQuantidadeProduto);
-            comprado = itemView.findViewById(R.id.checkBoxComprado);
+            //comprado = itemView.findViewById(R.id.checkBoxComprado);
 
 
         }

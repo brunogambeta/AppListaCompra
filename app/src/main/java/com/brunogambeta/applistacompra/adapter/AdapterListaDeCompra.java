@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.brunogambeta.applistacompra.R;
 import com.brunogambeta.applistacompra.model.ListaDeCompra;
 
-import java.util.List;
+import java.util.List; 
 
 public class AdapterListaDeCompra extends RecyclerView.Adapter<AdapterListaDeCompra.MyViewHolder> {
 
@@ -37,7 +37,7 @@ public class AdapterListaDeCompra extends RecyclerView.Adapter<AdapterListaDeCom
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         ListaDeCompra listaDeCompra = listaDeCompras.get(position);
         holder.descricao.setText(listaDeCompra.getDescricao());
-        
+
     }
 
     @Override
@@ -53,6 +53,7 @@ public class AdapterListaDeCompra extends RecyclerView.Adapter<AdapterListaDeCom
             super(itemView);
 
             descricao = itemView.findViewById(R.id.textDescricaoLista);
+            //idListaCompra = itemView.findViewById(R.id.editIdListaCompra);
 
 
         }

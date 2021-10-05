@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">AppListaCompra</string>
+    <string name="app_name">Minha Lista de Compra</string>
+    <string name="idAnuncio">ca-app-pub-9842164855107679/5682329330</string>
+    <string name="idAnuncioManifest">ca-app-pub-9842164855107679~7178070375</string>
+
+    <string name="Informacao">
+        Como utilizar o aplicativo Minha Lista de Compra:
+        \n
+        \n
+        1 - Adicionando uma nova lista:\n * Para adicionar uma nova lista, na tela de Listas Cadastradas, basta clicar no botão de adicionar no rodapé da sua tela, onde o mesmo irá abrir a janela para adicionarmos uma nova lista.
+        \n
+        \n
+        2 - Removendo uma lista:\n * Para removermos uma lista, basta clicarmos na lista desejada, e arrastar ou para a direita ou esquerda do seu aparelho, com isso o aplicativo irá pedir sua confirmação para excluir a lista.
+        \n
+        \n
+        3 - Adicionando produtos a Lista:\n * Para adicionarmos novos produtos na lista já criada, clicamos na lista desejada, o aplicativo irá abrir a tela de Produtos. Para adicionar um novo, basta clicar no botão de adicionar que se encontra no rodapé da sua tela.
+        \n
+        \n
+        4 - Removendo um produto lançado:\n * Para removermos um produto lançados, clicamos no produto desejado, e arrastamos para direita ou esquerda do seu aparelho, com isso o aplicativo irá pedir sua confirmação para excluir o produto.
+        \n
+        \n
+        5 - Finalizando a Lista:\n * Para finalizarmos a lista, ou seja, concluirmos, na tela de Produtos, clicamos no botão Concluir, localizado no canto superior direito. O mesmo ao pressionado, irá perguntar se realmente deseja finalizar a lista.
+        \n
+        \n
+    </string>
 </resources>
+

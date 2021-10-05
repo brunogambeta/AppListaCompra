@@ -11,4 +11,5 @@
     <color name="colorPrimaryDark">#8BC34A</color>
     <color name="colorAccent">#009688</color>
     <color name="corFundo">#FFF0FFC8</color>
+    <color name="corTexto">@color/black</color>
 </resources>

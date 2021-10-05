@@ -1,51 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activity.AdicionarProdutosActivity">
 
     <include
+        android:id="@+id/include4"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/adViewTelaAdicionarProdutos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include4">
 
 
-        <EditText
-            android:id="@+id/editNomeProdutoCadastro"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Descrição Produto"
-            android:inputType="text" />
+            android:background="@drawable/my_theme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editNomeProdutoCadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center_horizontal"
+                android:hint="Descrição"
+                android:inputType="text"
+                android:textColorHint="@color/corTexto" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-        <EditText
-            android:id="@+id/editQuantidadeProdutoCadastro"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Quantidade Produto"
-            android:text="1"
-            android:inputType="number" />
+            android:layout_marginTop="8dp"
+            android:background="@drawable/my_theme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editQuantidadeProdutoCadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center_horizontal"
+                android:hint="Quantidade"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/buttonSalvarProduto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@color/colorPrimary"
             android:padding="16dp"
             android:text="Salvar"
+            android:textColor="@color/corTexto"
             android:theme="@style/botaoPadrao" />
 
     </LinearLayout>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewTelaAdicionarProdutos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="@string/idAnuncio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

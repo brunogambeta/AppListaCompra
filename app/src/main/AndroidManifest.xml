@@ -9,22 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_app_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppListaCompra">
+        <activity android:name=".activity.InformacaoActivity"
+            android:parentActivityName=".activity.TelaPrincipalActivity"/>
         <activity
             android:name=".activity.AdicionarListaActivity"
-            android:parentActivityName=".activity.HomeActivity" />
+            android:parentActivityName=".activity.TelaPrincipalActivity" />
         <activity
             android:name=".activity.AdicionarProdutosActivity"
             android:parentActivityName=".activity.ProdutosActivity" />
         <activity
             android:name=".activity.ProdutosActivity"
-            android:parentActivityName=".activity.HomeActivity" />
+            android:parentActivityName=".activity.TelaPrincipalActivity" />
         <activity
-        android:name=".activity.NovaListaCompraActivity"
-        android:parentActivityName=".activity.HomeActivity" />
+            android:name=".activity.NovaListaCompraActivity"
+            android:parentActivityName=".activity.TelaPrincipalActivity" />
         <activity
             android:name=".activity.SobreActivity"
-            android:parentActivityName=".activity.HomeActivity" />
-        <activity android:name=".activity.HomeActivity" />
+            android:parentActivityName=".activity.TelaPrincipalActivity" />
+        <activity android:name=".activity.TelaPrincipalActivity" />
         <activity android:name=".activity.AutenticacaoActivity" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
@@ -33,6 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/idAnuncioManifest" />
     </application>
 
 </manifest>
